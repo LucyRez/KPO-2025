@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalCarShop", "UniversalCarShop\UniversalCarShop.csproj", "{4D411F70-24BC-45FC-9F00-BCAEE1238465}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReportServer", "ReportServer\ReportServer.csproj", "{C9AD3C11-7817-4971-AA06-775ED498075D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReportServer.Client", "ReportServer.Client\ReportServer.Client.csproj", "{662E7E84-F105-4978-B2E7-707305436642}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4D411F70-24BC-45FC-9F00-BCAEE1238465}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D411F70-24BC-45FC-9F00-BCAEE1238465}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D411F70-24BC-45FC-9F00-BCAEE1238465}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D411F70-24BC-45FC-9F00-BCAEE1238465}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9AD3C11-7817-4971-AA06-775ED498075D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9AD3C11-7817-4971-AA06-775ED498075D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9AD3C11-7817-4971-AA06-775ED498075D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9AD3C11-7817-4971-AA06-775ED498075D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{662E7E84-F105-4978-B2E7-707305436642}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{662E7E84-F105-4978-B2E7-707305436642}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{662E7E84-F105-4978-B2E7-707305436642}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{662E7E84-F105-4978-B2E7-707305436642}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

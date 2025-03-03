@@ -1,0 +1,57 @@
+# Ignore Visual Studio and JetBrains Rider specific files
+.vs/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.vcxproj.user
+
+# Ignore build outputs
+bin/
+obj/
+
+# Ignore NuGet dependencies
+*.nupkg
+packages/
+project.lock.json
+project.assets.json
+
+# Ignore Rider & Resharper files
+*.DotSettings
+*.DotSettings.user
+
+# Ignore temporary files
+*.log
+*.tlog
+*.cache
+*.csproj.user
+*.dbmdl
+
+# Ignore coverage results
+coverage/
+*.coverage
+*.coveragexml
+
+# Ignore generated files
+Generated/
+ServiceFabricBackup/
+
+# Ignore secrets and environment-specific settings
+secrets.json
+appsettings.*.json
+appsettings.local.json
+
+# Ignore Docker and Kubernetes artifacts
+*.dockerfile
+.kube/
+
+# Ignore editor-specific files
+*.swp
+*.swo
+
+# Ignore MacOS files
+.DS_Store
+
+# Ignore Windows thumbnail database
+Thumbs.db
