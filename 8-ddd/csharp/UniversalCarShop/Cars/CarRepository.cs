@@ -1,0 +1,30 @@
+using System;
+using UniversalCarShop.Customers;
+using UniversalCarShop.Domain;
+
+namespace UniversalCarShop.Cars;
+
+/// <summary>
+/// Репозиторий автомобилей
+/// </summary>
+public sealed class CarRepository : ICarRepository
+{
+    private readonly List<Car> _cars = new();
+    private readonly IDomainEventService _domainEventService;
+
+    public CarRepository(IDomainEventService domainEventService)
+    {
+        _domainEventService = domainEventService;
+    }
+
+    public IEnumerable<Car> GetAll() => _cars.AsReadOnly();
+
+    public void Add(Car car)
+    {
+        _cars.Add(car);
+        _domainEventService.Raise(new CarAddedEvent(car, DateTime.UtcNow));
+    }
+
+    public Car? FindCompatibleCar(CustomerCapabilities capabilities) => _cars
+        .FirstOrDefault(car => !car.IsSold && car.IsCompatible(capabilities));
+}
