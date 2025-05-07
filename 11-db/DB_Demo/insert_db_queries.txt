@@ -1,0 +1,20 @@
+INSERT INTO Users (name, email, password_hash, address, phone) VALUES
+('Alice Johnson', 'alice@example.com', 'hashed_password_1', '123 Main St, NY', '555-1234'),
+('Bob Smith', 'bob@example.com', 'hashed_password_2', '456 Oak St, LA', '555-5678'),
+('Charlie Brown', 'charlie@example.com', 'hashed_password_3', '789 Pine St, SF', '555-9012');
+
+INSERT INTO Vinyl (title, artist, release_year, price, stock) VALUES
+('Dark Side of the Moon', 'Pink Floyd', 1973, 29.99, 10),
+('Abbey Road', 'The Beatles', 1969, 24.99, 15),
+('Thriller', 'Michael Jackson', 1982, 19.99, 20);
+
+INSERT INTO Orders (user_id, total_price, status) VALUES
+(1, 54.98, 'Pending'),
+(2, 19.99, 'Created'),
+(3, 29.99, 'Shipped');
+
+INSERT INTO OrderItems (order_id, record_id, quantity, price) VALUES
+(1, 1, 1, 29.99),
+(1, 2, 1, 24.99),
+(2, 3, 1, 19.99),
+(3, 1, 1, 29.99);
