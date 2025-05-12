@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  zookeeper:
+    image: confluentinc/cp-zookeeper:latest
+    container_name: zookeeper
+    ports:
+      - "2181:2181"
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+
+  kafka:
+    image: confluentinc/cp-kafka:latest
+    container_name: kafka
+    ports:
+      - "9092:9092"
+    expose:
+      - "29092"
+      - "9093"
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_LISTENER_SECURITY_PROTOCOL: PLAINTEXT
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "false"
+      ALLOW_PLAINTEXT_LISTENER: yes
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: CLIENT:PLAINTEXT, LOCALHOST:PLAINTEXT, SERVICE:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: CLIENT
+      KAFKA_ADVERTISED_LISTENERS: CLIENT://kafka:29092, LOCALHOST://localhost:9092, SERVICE://kafka:9093
+      KAFKA_LISTENERS: CLIENT://kafka:29092,LOCALHOST://0.0.0.0:9092,SERVICE://0.0.0.0:9093
+
+  kafka-init:
+    image: confluentinc/cp-kafka:latest
+    container_name: kafka-init
+    depends_on:
+      - kafka
+    entrypoint: ["/bin/sh", "-c"]
+    command: |
+      "
+      echo '⏳ Ожидание Kafka...';
+      echo '✅ Создание топика test-topic...';
+      kafka-topics --bootstrap-server kafka:29092 --create --if-not-exists --topic demo --partitions 3 --replication-factor 1;
+      "
+
+  kafka-ui:
+    image: docker.redpanda.com/redpandadata/console:latest
+    container_name: kafka-ui
+    ports:
+      - "8080:8080"
+    environment:
+      - KAFKA_BROKERS=kafka:29092
+    depends_on:
+      - kafka
