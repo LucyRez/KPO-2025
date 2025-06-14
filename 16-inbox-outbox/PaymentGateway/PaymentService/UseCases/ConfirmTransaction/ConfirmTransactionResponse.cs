@@ -1,0 +1,3 @@
+namespace PaymentService.UseCases.ConfirmTransaction;
+
+public sealed record ConfirmTransactionResponse;
